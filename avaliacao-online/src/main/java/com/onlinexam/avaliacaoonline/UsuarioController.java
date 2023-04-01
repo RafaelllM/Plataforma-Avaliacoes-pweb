@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
@@ -20,18 +21,18 @@ public class UsuarioController {
         return "login";
     }
 
+    @PostMapping
+    @ResponseBody
+    Usuario add(@RequestParam("email") String email, @RequestParam("senha") String senha){
+        Usuario novoUsuario = new Usuario();
+        novoUsuario.setEmail(email);
+        novoUsuario.setSenha(senha);
+        return repo.save(novoUsuario);
+    };
+
     @GetMapping("home")
     public String home(Model model){
         return "index";
     }
 
-    
-    @PostMapping @ResponseBody Usuario add(Usuario nUsuario){
-        Usuario novoUsuario = new Usuario();
-        novoUsuario.setEmail();
-        novoUsuario.setSenha();
-        return repo.save(novoUsuario);
-            
-        };
-    }
 }
