@@ -16,6 +16,8 @@ public class UsuarioController {
     @Autowired
     UsuarioRepository repo;
 
+    Usuario user = null;
+
     @GetMapping("/")
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView();
@@ -33,11 +35,18 @@ public class UsuarioController {
     @PostMapping("login")
     @ResponseBody
     RedirectView verificar_login(@RequestParam("email") String email, @RequestParam("senha") String senha) {
-        Usuario novoUsuario = new Usuario();
-        novoUsuario.setEmail(email);
-        novoUsuario.setSenha(senha);
-        repo.save(novoUsuario);
-        String url = "http://localhost:8080/home";
+        String url = "http://localhost:8080/login";
+        try {
+            Usuario usuario = repo.findByEmailAndSenha(email, senha);
+            if (usuario.getDiscente_docente().equals("docente")) {
+                url = "http://localhost:8080/home";
+                user = usuario;
+            } else if (usuario.getDiscente_docente().equals("discente")) {
+                url = "http://localhost:8080/home";
+                user = usuario;
+            }
+        } catch (NullPointerException e) {
+        }
         return new RedirectView(url);
     };
 
@@ -59,6 +68,7 @@ public class UsuarioController {
         novoUsuario.setSenha(senha);
         novoUsuario.setDiscente_docente(discente_docente);
         repo.save(novoUsuario);
+        user = novoUsuario;
         String url = "http://localhost:8080/home";
         return new RedirectView(url);
     };
@@ -67,7 +77,18 @@ public class UsuarioController {
     @ResponseBody
     public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("home.html");
+        if (user.getDiscente_docente().equals("docente")) {
+            modelAndView.setViewName("docente.html");
+        } else {
+            modelAndView.setViewName("discente.html");
+        }
+        return modelAndView;
+    }
+
+    @GetMapping("turma")
+    public ModelAndView turma_vw() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("turma.html");
         return modelAndView;
     }
 
