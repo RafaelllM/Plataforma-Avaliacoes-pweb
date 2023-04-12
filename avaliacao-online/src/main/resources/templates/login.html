@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 
     <head>
@@ -19,13 +19,13 @@
         <section>
             <h2>Bem-vindo</h2>
             <div id="login">
-                <form id="dados-login">
-                    <p>email:</p>
-                    <input name="email" type="email"></input>
-                    <p>senha:</p>
-                    <input name="senha" type="password"></input>
+                <form  method="post"  action="/login" id="dados-login">
+                    <label for ="email">email:</label>
+                    <input id="email "name="email" type="email" ></input>
+                    <label for ="senha">senha:</label>
+                    <input id="senha" name="senha" type="password" ></input>
+                    <button type="submit" >Entrar</button>
                 </form>
-                <button for="dados-login" action="post"  type="submit" ><a href="/home">login</a></button>
             </div>
         </section>
         <footer>
