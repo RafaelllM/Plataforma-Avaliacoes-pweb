@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <meta charset="UTF-8"/>
+        <title></title>
+    </head>
+
+    <body>
+        <header>
+            <div id="header">
+                <ul>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Portal do Aluno</a></li>
+                    <li><a href="#">Portal do professor</a></li>
+                </ul>
+            </div>
+        </header>
+        <section>
+            <h2>Bem-vindo</h2>
+            <div id="login">
+                <form  method="post"  action="/cadastro" id="dados-login">
+
+                    <fieldset>
+                        <legend>Ocupação:</legend>
+                    
+                        <div>
+                          <input type="radio" id="docente" name="discente_docente" value="docente">
+                          <label for="huey">Docente</label>
+                        </div>
+                    
+                        <div>
+                          <input type="radio" id="discente" name="discente_docente" value="discente" checked>
+                          <label for="dewey">Discente</label>
+                        </div>
+                    </fieldset>
+
+                    <label for ="nome">Nome Completo:</label>
+                    <input id="nome "name="nome" type="text" ></input>
+
+                    <label for ="email">Email:</label>
+                    <input id="email "name="email" type="email" ></input>
+
+                    <label for ="senha">Senha:</label>
+                    <input id="senha" name="senha" type="password" ></input>
+
+                    <button type="submit" >Cadastrar</button>
+                </form>
+            </div>
+        </section>
+        <footer>
+            <div></div>
+        </footer>
+    </body>
+
+</html>
