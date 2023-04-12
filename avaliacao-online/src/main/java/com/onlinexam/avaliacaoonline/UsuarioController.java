@@ -92,4 +92,11 @@ public class UsuarioController {
         return modelAndView;
     }
 
+    @GetMapping("provas")
+    public ModelAndView provas_vw() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("provas.html");
+        return modelAndView;
+    }
+
 }
