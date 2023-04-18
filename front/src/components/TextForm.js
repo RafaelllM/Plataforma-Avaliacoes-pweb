@@ -21,6 +21,7 @@ export default function BasicTextFields() {
   const[nome, setNome] = React.useState('')
   const[email, setEmail] = React.useState('')
   const[senha, setSenha] = React.useState('')
+  const[discente_docente, setDiscente_Docente] = React.useState('')
 
   const loginlink = {color:"#2074d4", textAlign:"left", fontWeight:500, textDecoration:'none'}
 
@@ -28,9 +29,13 @@ export default function BasicTextFields() {
 
   const [showPassword, setShowPassword] = React.useState(false);
 
+  function radioEvent (event){
+    setDiscente_Docente(event.target.value);
+  }
+
   const handleClick=(e)=>{
     e.preventDefault()
-    const user={nome, email, senha}
+    const user={nome, email, senha, discente_docente}
     console.log(user)
     fetch("http://localhost:8080/cadastro",{
       method:"POST",
@@ -96,8 +101,12 @@ export default function BasicTextFields() {
               name="discente_docente"
               style={{paddingLeft:'20px'}}
             >
-              <FormControlLabel value="Discente" control={<Radio />} label="Discente" />
-              <FormControlLabel value="Docente" control={<Radio />} label="Docente" />
+              <FormControlLabel value="Discente" checked={discente_docente == "Discente"} control={<Radio />} label="Discente"
+              onChange={radioEvent} />
+
+              <FormControlLabel value="Docente" checked={discente_docente == "Docente"} control={<Radio />} label="Docente"
+              onChange={radioEvent} />
+              
             </RadioGroup>
             <Button variant="contained" color="primary" onClick={handleClick}>
               Cadastro
