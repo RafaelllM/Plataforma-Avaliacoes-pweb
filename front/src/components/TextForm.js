@@ -14,15 +14,32 @@ import FormLabel from '@mui/material/FormLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 
+import Button from '@mui/material/Button';
+
 
 export default function BasicTextFields() {
   const[nome, setNome] = React.useState('')
   const[email, setEmail] = React.useState('')
   const[senha, setSenha] = React.useState('')
 
-  const forgotpass = {padding:'10px',color:"#2074d4", textAlign:"left", fontWeight:500, textDecoration:'none'}
+  const loginlink = {color:"#2074d4", textAlign:"left", fontWeight:500, textDecoration:'none'}
+
+  const login = {padding:'20px', textAlign:"left"}
 
   const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleClick=(e)=>{
+    e.preventDefault()
+    const user={nome, email, senha}
+    console.log(user)
+    fetch("http://localhost:8080/cadastro",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(user)
+    }).then(()=>{
+      console.log("Novo usuário criado")
+    })
+  };
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -40,7 +57,7 @@ export default function BasicTextFields() {
       noValidate
       autoComplete="off"
     >
-        <TextField id="outlined-basic" label="Nome" variant="outlined" 
+        <TextField id="outlined-basic" label="Nome Completo" variant="outlined" 
         value={nome}
         onChange={(e)=>setNome(e.target.value)}
         />
@@ -71,7 +88,6 @@ export default function BasicTextFields() {
             value={senha}
             onChange={(e)=>setSenha(e.target.value)}
           />
-          <a style={forgotpass} href='#' >Esqueceu a senha?</a>
         </FormControl>
         <FormLabel id="">Ocupação</FormLabel>
             <RadioGroup
@@ -83,6 +99,10 @@ export default function BasicTextFields() {
               <FormControlLabel value="Discente" control={<Radio />} label="Discente" />
               <FormControlLabel value="Docente" control={<Radio />} label="Docente" />
             </RadioGroup>
+            <Button variant="contained" color="primary" onClick={handleClick}>
+              Cadastro
+            </Button>
+            <p style={login}>Já tem uma conta? <a style={loginlink} href={() => false}>login</a></p>
         
     </Box>
   );
