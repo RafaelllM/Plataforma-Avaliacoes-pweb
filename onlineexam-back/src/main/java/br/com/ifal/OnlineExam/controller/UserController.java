@@ -18,16 +18,16 @@ import br.com.ifal.OnlineExam.service.UserService;
 @CrossOrigin
 public class UserController {
     @Autowired
-    UserService studentService;
+    UserService userService;
 
     @PostMapping("/cadastro")
-    public void cadastro(@RequestBody User student) {
-        studentService.saveStudent(student);
+    public User cadastro(@RequestBody User user) {
+        return userService.saveStudent(user);
     }
 
     @GetMapping("/turma")
     public List<User> getAllStudents() {
-        return studentService.getAllStudents();
+        return userService.getAllStudents();
     }
 
 }

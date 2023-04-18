@@ -10,15 +10,20 @@ import br.com.ifal.OnlineExam.repositery.UserRepositery;
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    private UserRepositery studentRepositery;
+    private UserRepositery userRepositery;
 
     @Override
-    public User saveStudent(User student) {
-        return studentRepositery.save(student);
+    public User saveStudent(User user) {
+        return userRepositery.save(user);
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        return userRepositery.findByEmail(email);
     }
 
     @Override
     public List<User> getAllStudents() {
-        return studentRepositery.findAll();
+        return userRepositery.findAll();
     }
 }
