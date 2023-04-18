@@ -1,5 +1,5 @@
 package br.com.ifal.OnlineExam.model;
 
-public class Student extends User {
+public class Teacher extends User {
 
 }
