@@ -1,16 +1,19 @@
 import './App.css';
-import TextForm from './components/TextForm';
+import Cadastro from './pages/Cadastro';
+import Home from './pages/Home';
+import Provas from './pages/Provas'
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <section id="register">
-        <div className="box-text-field">
-          <h1>Online<span className='color-exam'>Exam</span></h1>
-          <TextForm/>
-        </div>
-      </section>
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path='/' element={<Cadastro/>} />
+        <Route exact path='/home' element={<Home/>} />
+        <Route exact path='/provas' element={<Provas/>} />
+      </Routes>
+    </Router>
   );
 }
 
