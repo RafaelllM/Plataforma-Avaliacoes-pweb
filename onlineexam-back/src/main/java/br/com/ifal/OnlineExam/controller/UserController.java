@@ -15,18 +15,22 @@ import br.com.ifal.OnlineExam.service.UserService;
 
 @RestController
 @RequestMapping("/")
-@CrossOrigin
+@CrossOrigin("http://localhost:3000")
 public class UserController {
     @Autowired
     UserService userService;
 
     @PostMapping("/cadastro")
-    public User cadastro(@RequestBody User user) {
+    public User cadastro(@RequestBody User user) throws Exception {
+        String email = user.getEmail();
+        if (userService.findByEmail(email) != null) {
+            throw new Exception();
+        }
         return userService.saveStudent(user);
     }
 
     @GetMapping("/turma")
-    public List<User> getAllStudents() {
+    public List<User> turma() {
         return userService.getAllStudents();
     }
 
