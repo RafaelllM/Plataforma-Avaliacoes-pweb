@@ -23,7 +23,7 @@ public class UserController {
     @PostMapping("/cadastro")
     public User cadastro(@RequestBody User user) throws Exception {
         String email = user.getEmail();
-        if (userService.findByEmail(email) != null) {
+        if (email != null) {
             throw new Exception();
         }
         return userService.saveStudent(user);
