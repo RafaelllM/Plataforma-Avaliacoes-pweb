@@ -49,6 +49,7 @@ function Provas() {
 
 
     const [input, setInput] = useState('');
+    const [inputRadio, setInputRadio] = useState('');
     const[tipo_questao, setTipo_questao] = useState('');
 
     function mudarquestaoEvent (event){
@@ -63,9 +64,9 @@ function Provas() {
     var numeroRadio = 0;
 
     const addAlternativa = () => {
-        setAlternativas([...Alternativas],
-            <FormControlLabel value={numeroRadio+1} control={<Radio />} label='teste' />
-            )
+        setAlternativas([...Alternativas,
+            <FormControlLabel key={Alternativas.length} value={numeroRadio} control={<Radio />} label={inputRadio} />
+        ])
     }
 
     const addQuestao = () => {
@@ -101,6 +102,7 @@ function Provas() {
                         label="Elabore a alternativa da questão"
                         multiline
                         rows={1}
+                        onChange={(e)=> setInputRadio(e.target.value)}
                         sx={{
                             mt:"10px"
                         }}
@@ -113,7 +115,7 @@ function Provas() {
                         </RadioGroup>
                     </FormControl>
 
-                    <Fab onClick={addAlternativa} color="primary" aria-label="add"
+                    <Fab onClick={() => addAlternativa()} color="primary" aria-label="add"
                     sx={{
                         marginTop:'30px',
                         marginLeft:'10px'

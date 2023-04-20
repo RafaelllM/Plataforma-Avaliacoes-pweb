@@ -21,6 +21,8 @@ import { Link } from 'react-router-dom'
 import "./TextForm.css";
 
 
+
+
 export default function BasicTextFields() {
   const[nome, setNome] = useState('')
   const[email, setEmail] = useState('')
@@ -38,8 +40,8 @@ export default function BasicTextFields() {
   }
 
   const handleClick= async ()=>{
+    const user={nome, email, senha, discente_docente}
     try{
-      const user={nome, email, senha, discente_docente}
     fetch("http://localhost:8080/cadastro",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
@@ -49,6 +51,7 @@ export default function BasicTextFields() {
     }) } catch (Error) {
       console.log(Error)
     }
+    console.log(user);
   };
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -116,7 +119,7 @@ export default function BasicTextFields() {
                       onChange={radioEvent} />
                       
                     </RadioGroup>
-                    <Link style={{textDecoration:'none'}} to='/home' >
+                    <Link style={{textDecoration:'none'}} to={`/${discente_docente}`} >
                       <Button variant="contained" color="primary" onClick={handleClick} sx={{
                         width: '400px',
                         }}>
