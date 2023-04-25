@@ -1,6 +1,8 @@
 package br.com.ifal.OnlineExam.service;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +15,14 @@ public class UserServiceImpl implements UserService {
     private UserRepositery userRepositery;
 
     @Override
-    public User saveStudent(User user) {
+    public User SalvarUsuario(User user) {
         return userRepositery.save(user);
     }
 
     @Override
-    public User findByEmail(String email) {
-        return userRepositery.findByEmail(email);
+    public boolean VerificarEmail(String email) {
+        Optional<User> usuario = userRepositery.findByEmail(email);
+        return usuario.isPresent();
     }
 
     @Override

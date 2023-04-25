@@ -1,19 +1,30 @@
 package br.com.ifal.OnlineExam.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private long id;
+
+    @NotBlank
     private String nome;
+
+    @Column(nullable = false, unique = true)
+    @Email
     private String email;
+
+    @NotBlank
     private String senha;
+
     private String discente_docente;
 
     public long getId() {
@@ -49,7 +60,7 @@ public class User {
     }
 
     public String getDiscente_docente() {
-        return discente_docente;
+        return this.discente_docente;
     }
 
     public void setDiscente_docente(String discente_docente) {
