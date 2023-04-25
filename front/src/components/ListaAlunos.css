@@ -1,0 +1,26 @@
+
+.container-table {
+    width: 900px;
+    margin-top: 100px;
+    margin-inline: auto;
+}
+
+.table-alunos {
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+}
+
+.table-alunos th{
+    width: 33%;
+    padding: 10px;
+    border-bottom: 2px solid #2074d4;
+}
+
+.table-alunos td {
+    width: 33%;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #f5f5f5;
+}

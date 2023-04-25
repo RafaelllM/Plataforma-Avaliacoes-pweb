@@ -15,7 +15,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 import "./TextForm.css";
@@ -24,6 +24,8 @@ import "./TextForm.css";
 
 
 export default function BasicTextFields() {
+  const navigate = useNavigate();
+
   const[nome, setNome] = useState('')
   const[email, setEmail] = useState('')
   const[senha, setSenha] = useState('')
@@ -39,19 +41,26 @@ export default function BasicTextFields() {
     setDiscente_Docente(event.target.value);
   }
 
-  const handleClick= async ()=>{
+  const handleClick = async () => {
     const user={nome, email, senha, discente_docente}
-    try{
-    fetch("http://localhost:8080/cadastro",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify(user)
-    }).then(()=>{
-      console.log("Novo usuário criado")
-    }) } catch (Error) {
-      console.log(Error)
+    await fetch("http://localhost:8080/cadastro",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(user)
+  }).then((response) => {
+    if (response.status === 200) {
+      console.log("Usuário Cadastrado com Sucesso")
+      navigate(`/${discente_docente}`)
+    } 
+    else if(response.status === 400) {
+      console.log('Erro ao cadastrar usuário: ');
+      navigate("/")
     }
-    console.log(user);
+  })
+  .catch((error) => {
+    console.log('Erro ao cadastrar usuário:', error);
+    navigate("/")
+  })
   };
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -84,7 +93,7 @@ export default function BasicTextFields() {
                 />
 
                 <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-                  <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                  <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
                   <OutlinedInput
                     id="outlined-adornment-password"
                     type={showPassword ? 'text' : 'password'}
@@ -112,20 +121,18 @@ export default function BasicTextFields() {
                       name="discente_docente"
                       style={{paddingLeft:'20px'}}
                     >
-                      <FormControlLabel value="Discente" checked={discente_docente === "Discente"} control={<Radio />} label="Discente"
+                      <FormControlLabel value="Discente" checked={discente_docente === "Discente"} control={<Radio />} label="Discente" defaultChecked
                       onChange={radioEvent} />
 
                       <FormControlLabel value="Docente" checked={discente_docente === "Docente"} control={<Radio />} label="Docente"
                       onChange={radioEvent} />
                       
                     </RadioGroup>
-                    <Link style={{textDecoration:'none'}} to={`/${discente_docente}`} >
                       <Button variant="contained" color="primary" onClick={handleClick} sx={{
                         width: '400px',
                         }}>
                           <span>Cadastro</span>
                       </Button>
-                    </Link>
                     
                     <p style={login}>Já tem uma conta? <a style={loginlink} href={() => false}>login</a></p>
                 

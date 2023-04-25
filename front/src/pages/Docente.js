@@ -1,6 +1,7 @@
 import "./Docente.css";
 
 import { Link } from 'react-router-dom'
+import OpenIconSpeedDial from '../components/AdicionarTurma'
 
 function Docente() {
     return (
@@ -16,6 +17,7 @@ function Docente() {
             <section id="turmas">
                 <div>
                     <h3 className="turma-header">Suas Turmas</h3>
+                    <OpenIconSpeedDial/>
                 </div>
             </section>
         </body>
