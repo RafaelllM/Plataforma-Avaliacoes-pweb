@@ -21,8 +21,54 @@ function ListaAlunos() {
     const handleClick = () => {
         setDesapear(!desapear);
         setActive(!active);
-      };
+    };
 
+    const [edit, setEdit] = useState(false)
+
+    const [editnome, setEditNome] = useState('')
+    const [editemail, setEditEmail] = useState('')
+
+    function EditClick(nome, email) {
+        setEditNome(nome)
+        setEditEmail(email)
+        setEdit(!edit);
+        return (
+                <>
+                <table className="table-alunos">
+                    <tbody>
+                    <td><strong>#</strong></td>
+                    <td>
+                        <TextField id="standard-basic" variant="standard" fullWidth
+                        value={editnome}/>
+                    </td>
+                    <td>
+                        <TextField id="standard-basic" variant="standard" fullWidth
+                        value={editemail}/>
+                    </td>
+                    <td>
+                        <CheckIcon  sx={{color: '#d9534f', cursor:'pointer' }}/>
+                    </td>
+                    <td>
+                        <CloseIcon onClick={CancelClick} sx={{ color: '#292b2c', cursor:'pointer' }}/>  
+                    </td>
+                    </tbody>
+                </table>
+                </>
+        )
+    }
+    
+    function SaveClick(nome, email) {
+        console.log(nome, email)
+    }
+
+    const CancelClick = () => {
+        setEdit(!edit);
+    }
+    
+    function DeleteAluno (aluno) {
+        console.log(aluno)
+    }
+    
     const[nome, setNome] = useState('')
     const[email, setEmail] = useState('')
 
@@ -55,8 +101,7 @@ function ListaAlunos() {
       })
       };
 
-
-    var index = 0;
+    var nAlunos = 0;
 
     const [alunos, setAlunos] = useState([]);
 
@@ -72,6 +117,11 @@ function ListaAlunos() {
     return (
             <div id="Turma">
                 <div className="container-table">
+
+                    <div className="EditAluno">
+                        {edit &&  (<EditClick/>)}
+                    </div>
+                    
                     <table className="table-alunos">
                         <thead>
                             <tr>
@@ -84,20 +134,25 @@ function ListaAlunos() {
                         </thead>
                         <tbody>
                             {
-                                alunos.map((aluno) =>
-                                aluno.discente_docente === "Discente" ? (
-                                <tr>
-                                <td key={index}><strong>{index += 1}</strong></td>
-                                <td>{aluno.nome}</td>
-                                <td>{aluno.email}</td>
-                                <td>
-                                    <EditIcon sx={{ color: '#292b2c', cursor:'pointer' }}/>
-                                </td>
-                                <td>
-                                    <PersonRemoveIcon sx={{ color: '#d9534f', cursor:'pointer' }}/>
-                                </td>
-                                </tr>
-                                ): null)
+                                alunos.map((aluno, index) => {
+                                    if (aluno.discente_docente !== "Discente") {
+                                        return null;
+                                      }
+
+                                    return (
+                                        <tr key={index}>
+                                                <td><strong>{nAlunos+=1}</strong></td>
+                                                <td>{aluno.nome}</td>
+                                                <td>{aluno.email}</td>
+                                                <td>
+                                                    <EditIcon onClick={EditClick(aluno.nome, aluno.email)} sx={{cursor:'pointer'}} />
+                                                </td>
+                                                <td>
+                                                    <PersonRemoveIcon onClick={DeleteAluno(aluno)} sx={{ color: '#d9534f', cursor:'pointer' }}/>
+                                                </td>
+                                        </tr>
+                                    );
+                                })
                             }
                             <tr className={`${AddAluno}${active ? 'active' : ''}`}>
                                 <td>
@@ -118,7 +173,7 @@ function ListaAlunos() {
                                     />
                                 </td>
                                 <td><CheckIcon onClick={postAluno} color="success" sx={{cursor:'pointer'}} /></td>
-                                <td><CloseIcon sx={{ color: '#d9534f', cursor:'pointer' }} onClick={handleClick}/></td>
+                                <td><CloseIcon onClick={handleClick} sx={{ color: '#d9534f', cursor:'pointer' }} /></td>
                             </tr>
                         </tbody>
                     </table>
