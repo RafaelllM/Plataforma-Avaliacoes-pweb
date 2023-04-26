@@ -1,4 +1,4 @@
-import "./Docente.css";
+import "./css/Docente.css";
 
 import { Link } from 'react-router-dom'
 import OpenIconSpeedDial from '../components/AdicionarTurma'
@@ -8,7 +8,7 @@ function Docente() {
         <body id="home">
             <section id="provas">
                 <div className="btn-box">
-                    <Link className="btn-criar" to={'/provas'}>Gerenciamento de Questões</Link>
+                    <Link className="btn-criar" to={'/Questoes'}>Gerenciamento de Questões</Link>
                 </div>
                 <div>
                     <h3>Provas</h3>

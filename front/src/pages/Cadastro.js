@@ -1,8 +1,8 @@
-import TextForm from '../components/TextForm';
+import FormularioCadastro from '../components/FormularioCadastro';
 
 function Cadastro() {
     return (
-        <TextForm/>
+        <FormularioCadastro/>
     )
 }
 
