@@ -18,7 +18,16 @@ public class UserServiceImpl implements UserService {
     public User SalvarUsuario(User user) {
         return userRepositery.save(user);
     }
-
+    
+    @Override
+    public String EditarUsuario(User aluno) {
+        userRepositery.stream().filter(user -> user.getId() == aluo.getId()).forEach( user ->{
+	    user.setEmail(aluno.getEmail());
+	    user.setNome(aluno.getNome());
+	});
+	return "Atualizado com sucesso";
+    } 
+	
     @Override
     public boolean VerificarEmail(String email) {
         Optional<User> usuario = userRepositery.findByEmail(email);
