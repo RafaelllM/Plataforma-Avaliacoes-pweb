@@ -47,4 +47,33 @@ public class UserController {
         return userService.getAllStudents();
     }
 
+    @PutMapping("/turma")
+    public ResponseEntity<User> update(@RequestBody @Valid User aluno){
+	User alunoAtualizado = userService.EditarUsuario(aluno);
+        return ResponseEntity.ok(alunoAtualizado);	
+   }    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
