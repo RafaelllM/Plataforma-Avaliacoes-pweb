@@ -1,9 +1,9 @@
 package br.com.ifal.OnlineExam.service.User.User;
 
+import br.com.ifal.OnlineExam.model.User.User;
+
 import java.util.List;
 import java.util.Optional;
-
-import br.com.ifal.OnlineExam.model.User.*;
 
 public interface UserService {
 

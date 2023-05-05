@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import javax.persistence.NonUniqueResultException;
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException.BadRequest;
 
-import br.com.ifal.OnlineExam.model.User.*;
-import br.com.ifal.OnlineExam.model.Questoes.*;
+import br.com.ifal.OnlineExam.model.User.User;
+import br.com.ifal.OnlineExam.model.Questoes.Questao;
 import br.com.ifal.OnlineExam.service.User.Questoes.QuestoesServiceImpl;
 import br.com.ifal.OnlineExam.service.User.User.UserServiceImpl;
 
@@ -73,7 +72,7 @@ public class UserController {
         return userService.DeletarAluno(aluno);
     }
 
-    @PostMapping("/questoes/fechadas")
+    @PostMapping("Docente/questoes/fechadas")
     public ResponseEntity<Questao> SalvarQuestao(@RequestBody Questao questao) {
         try {
             Questao questaosalva = questoesService.SalvarQuestao(questao);

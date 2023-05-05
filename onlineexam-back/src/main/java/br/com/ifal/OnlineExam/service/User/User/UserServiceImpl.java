@@ -1,11 +1,11 @@
 package br.com.ifal.OnlineExam.service.User.User;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.ArrayList;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import br.com.ifal.OnlineExam.model.User.User;
 import br.com.ifal.OnlineExam.repositery.UserRepository;
