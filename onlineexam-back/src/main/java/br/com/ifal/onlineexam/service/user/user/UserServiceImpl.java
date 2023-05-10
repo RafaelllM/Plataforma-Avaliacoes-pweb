@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.ifal.onlineexam.model.user.User;
-import br.com.ifal.onlineexam.repositery.UserRepository;
+import br.com.ifal.onlineexam.repository.userrepository.UserRepository;
 
 import java.util.List;
 import java.util.Optional;

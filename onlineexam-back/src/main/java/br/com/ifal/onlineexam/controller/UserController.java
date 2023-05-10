@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException.BadRequest;
 
 import br.com.ifal.onlineexam.model.questoes.Questao;
+import br.com.ifal.onlineexam.model.questoes.QuestaoAberta;
+import br.com.ifal.onlineexam.model.questoes.QuestaoFechada;
+import br.com.ifal.onlineexam.model.questoes.QuestaoVF;
 import br.com.ifal.onlineexam.model.user.User;
 import br.com.ifal.onlineexam.service.user.questoes.QuestoesServiceImpl;
 import br.com.ifal.onlineexam.service.user.user.UserServiceImpl;
@@ -63,13 +66,38 @@ public class UserController {
         return userService.DeletarAluno(aluno);
     }
 
-    @PostMapping("/questoes")
-    public Questao SalvarQuestao(@RequestBody Questao questao) {
-        return questoesService.SalvarQuestao(questao);
+    @GetMapping("/questoes")
+    public List<Object> listarQuestoes() {
+        return questoesService.getAllQuestoes();
     }
 
-    @GetMapping("/questoes")
-    public List<Questao> listarQuestoes() {
-        return questoesService.getAllQuestoes();
+    @GetMapping("/questoes/aberta")
+    public List<QuestaoAberta> ListarQuestoesAbertas() {
+        return questoesService.getAllQuestaoAbertas();
+    }
+
+    @PostMapping("/questoes/aberta")
+    public Questao SalvarQuestaoAberta(@RequestBody QuestaoAberta questao) {
+        return questoesService.SalvarQuestaoAberta(questao);
+    }
+
+    @GetMapping("/questoes/fechadas")
+    public List<QuestaoFechada> listarQuestoesFechadas() {
+        return questoesService.getAllQuestaoFechadas();
+    }
+
+    @PostMapping("/questoes/fechada")
+    public Questao SalvarQuestaoFechada(@RequestBody QuestaoFechada questao) {
+        return questoesService.SalvarQuestaoFechada(questao);
+    }
+
+    @GetMapping("/questoes/vf")
+    public List<QuestaoVF> listarQuestoesVFs() {
+        return questoesService.getAllQuestaoVFs();
+    }
+
+    @PostMapping("/questoes/vf")
+    public Questao SalvarQuestaoVF(@RequestBody QuestaoVF questao) {
+        return questoesService.SalvarQuestaoVF(questao);
     }
 }
