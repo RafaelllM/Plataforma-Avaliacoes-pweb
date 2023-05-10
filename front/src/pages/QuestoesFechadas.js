@@ -7,15 +7,15 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-import { create } from '../services/questoes.service';
+import { createQuestao } from '../services/questoes.service';
 
 export default function QuestoesFechadas() {
 
     const[assunto, setAssunto] = useState('')
     const[enunciado, setEnunciado] = useState('')
-    const[resposta, setResposta] = useState('')
+    const[resposta_correta, setResposta_correta] = useState('')
     function radioResposta (event){
-        setResposta(event.target.value);
+        setResposta_correta(event.target.value);
       }
     const[alternativa1, setAlternativa1] = useState('')
     const[alternativa2, setAlternativa2] = useState('')
@@ -23,16 +23,19 @@ export default function QuestoesFechadas() {
     const[alternativa4, setAlternativa4] = useState('')
     const[alternativa5, setAlternativa5] = useState('')
 
-    function addQuestao() {
+    function addQuestao(e) {
+        e.preventDefault();
         const alternativas = [alternativa1, alternativa2, alternativa3, alternativa4, alternativa5]
-        const questao = { assunto, enunciado, alternativas, resposta };
-        create(questao).then((res) => {
+        const questao = { assunto, enunciado, alternativas, resposta_correta };
+        createQuestao(questao)
+        .then((res) => {
             if (res.status === 200) {
                 console.log("Questao Cadastrada com Sucesso")
             } else if (res.status === 400) {
                 console.log('Erro ao cadastrar questao');
             }
         })
+        console.log(questao)
     }
 
     return (

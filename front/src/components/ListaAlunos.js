@@ -9,8 +9,9 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 
 import { SvgIcon } from "@mui/material";
-import "./css/ListaAlunos.css";
 import { create, update, deletar } from '../services/alunos.service';
+
+import "./css/ListaAlunos.css";
 
 
 function ListaAlunos() {
