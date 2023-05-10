@@ -3,10 +3,26 @@ import * as React from 'react';
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';   
 
+import { createQuestaoAberta } from '../services/questoes.service';
+
 export default function QuestoesAbertas() {
     
     const[assunto, setAssunto] = useState('')
     const[enunciado, setEnunciado] = useState('')
+
+    function addQuestao(e) {
+        e.preventDefault();
+        const questao = { assunto, enunciado };
+        createQuestaoAberta(questao)
+        .then((res) => {
+            if (res.status === 200) {
+                console.log("Questao Cadastrada com Sucesso")
+            } else if (res.status === 400) {
+                console.log('Erro ao cadastrar questao');
+            }
+        })
+        console.log(questao)
+    }
 
     return (
         <section id='body'>
@@ -31,7 +47,7 @@ export default function QuestoesAbertas() {
                     marginTop:'10px'
                 }}
                 />
-                <button className='btn-submeter'>
+                <button onClick={addQuestao} className='btn-submeter'>
                     Submeter
                 </button>
             </div>

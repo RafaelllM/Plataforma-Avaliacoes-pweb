@@ -7,7 +7,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-import { createQuestao } from '../services/questoes.service';
+import { createQuestaoFechada } from '../services/questoes.service';
 
 export default function QuestoesFechadas() {
 
@@ -27,7 +27,7 @@ export default function QuestoesFechadas() {
         e.preventDefault();
         const alternativas = [alternativa1, alternativa2, alternativa3, alternativa4, alternativa5]
         const questao = { assunto, enunciado, alternativas, resposta_correta };
-        createQuestao(questao)
+        createQuestaoFechada(questao)
         .then((res) => {
             if (res.status === 200) {
                 console.log("Questao Cadastrada com Sucesso")
