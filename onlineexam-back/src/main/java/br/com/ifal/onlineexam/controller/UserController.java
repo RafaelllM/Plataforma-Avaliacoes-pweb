@@ -20,6 +20,7 @@ import br.com.ifal.onlineexam.model.questoes.Questao;
 import br.com.ifal.onlineexam.model.questoes.QuestaoAberta;
 import br.com.ifal.onlineexam.model.questoes.QuestaoFechada;
 import br.com.ifal.onlineexam.model.questoes.QuestaoVF;
+import br.com.ifal.onlineexam.model.user.Student;
 import br.com.ifal.onlineexam.model.user.User;
 import br.com.ifal.onlineexam.service.user.questoes.QuestoesServiceImpl;
 import br.com.ifal.onlineexam.service.user.user.UserServiceImpl;
@@ -56,13 +57,13 @@ public class UserController {
     }
 
     @PutMapping("/turma")
-    public ResponseEntity<User> AtualizarAluno(@RequestBody @Valid User aluno) {
-        User alunoAtualizado = userService.SalvarUsuario(aluno);
+    public ResponseEntity<User> AtualizarAluno(@RequestBody @Valid Student aluno) {
+        User alunoAtualizado = userService.AtualizarAluno(aluno);
         return ResponseEntity.ok(alunoAtualizado);
     }
 
     @DeleteMapping("/turma")
-    public String RemoverAluno(@RequestBody @Valid User aluno) {
+    public String RemoverAluno(@RequestBody @Valid Student aluno) {
         return userService.DeletarAluno(aluno);
     }
 
