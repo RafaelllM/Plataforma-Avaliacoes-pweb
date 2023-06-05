@@ -1,0 +1,43 @@
+#BodyQuestoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+}
+
+.parte1 {
+    padding: 5px;
+    width: 30%;
+    background-color: #F0F8FF;
+}
+
+.margin-btn-gerar-prova {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-gerar-prova {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #2074d4;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    width: 90%;
+    text-align: center;
+}
+
+.btn-gerar-prova:hover {
+    transition: .8s;
+    background-color: #133e71;
+}
+
+
+.parte2 {
+    padding: 5px;
+    width: 70%;
+}
+

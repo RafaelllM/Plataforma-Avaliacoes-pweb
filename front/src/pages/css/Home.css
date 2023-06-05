@@ -1,0 +1,54 @@
+#home {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#home section {
+    height: calc(100vh - 20px);
+}
+
+h3 {
+    color: #333333;
+}
+
+#provas {
+    width: 30%;
+    background-color: #fff;
+}
+
+#turmas {
+    padding: 10px;
+    width: 70%;
+    background-color: #F0F8FF;
+}
+
+#provas, #turmas div {
+    padding: 10px;
+}
+
+.btn-box {
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-criar {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    background-color: #2074d4;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    color: white;
+}
+
+.btn-criar:hover {
+    transition: .8s;
+    background-color: #133e71;
+}
+
+.turma-header {
+    border-bottom: 2px solid #2074d4;
+}

@@ -1,0 +1,28 @@
+#Container-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    border-bottom: 2px solid #2074d4;
+}
+
+.btn-option {
+    text-decoration: none;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #2074d4;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+.btn-option:hover {
+    transition: .8s;
+    background-color: #133e71;
+}
+
+.btn-titulo {
+    color: #0c2e54;
+    align-self: center;
+}

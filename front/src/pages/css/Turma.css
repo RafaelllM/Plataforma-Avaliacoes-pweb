@@ -1,0 +1,9 @@
+#header-turma {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.btn-add-aluno {
+    margin: 15px;
+}

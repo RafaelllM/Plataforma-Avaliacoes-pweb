@@ -1,0 +1,26 @@
+#background-gerarprova {
+    background-color: #2074d4;
+    padding: 20px;
+}
+
+#exibicao_questeos {
+    background-color: white;
+    border-radius: 10px;
+    margin-inline: auto;
+    width: 80%;
+    padding: 20px;
+}
+
+#exibicao_questeos > h1 {
+    text-align: center;
+    font-size: 32px;
+}
+
+.questao-border {
+    transition: .8s;
+    box-shadow: #2074d4 0px 0px 0px 2px, #2074d4 0px 4px 6px -1px, #2074d4 0px 1px 0px inset;
+}
+
+.data-gerar {
+    width: 300px;
+}
