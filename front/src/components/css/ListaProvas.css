@@ -1,0 +1,26 @@
+#exibir-prova {
+    display: block;
+    background-color: white;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 5px 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-inline: auto;
+    cursor: pointer;
+}
+
+#exibir-prova h2 {
+    color: #2074d4;
+}
+
+#exibir-prova p {
+    color: #777777;
+}
+
+.exibir-prova-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

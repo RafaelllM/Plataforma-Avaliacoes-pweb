@@ -1,0 +1,42 @@
+#exibicao_turmas {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.turma {
+    cursor: pointer;
+    width: 30%;
+    border-radius: 10px;
+    height: auto;
+    background: white;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-right: 10px;
+}
+
+.turma p {
+    color: #2074d4;
+}
+
+.popup_adicionarturma {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: white;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 100px;
+}
+
+.btnfixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 30px;
+}

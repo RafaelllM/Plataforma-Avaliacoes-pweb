@@ -1,0 +1,11 @@
+#background-gerarprova {
+    background-color: #2074d4;
+    padding: 20px;
+}
+
+.questao-border {
+    transition: .8s;
+    box-shadow: #2074d4 0px 0px 0px 2px, #2074d4 0px 4px 6px -1px, #2074d4 0px 1px 0px inset;
+}
+
+

@@ -1,0 +1,89 @@
+#body{
+    background-color: #2074d4;
+    width: 100%;
+    height: 115vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.conteiner-gerar-questoes {
+    margin: auto 0;
+    background-color: white;
+    border-radius: 15px;
+    width: 900px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.assunto-dificuldade-div {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    width: 900px;
+}
+
+.assunto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+}
+
+.dificuldade {
+    margin-inline: auto;
+    width: 50%;
+}
+
+
+.container-alternativas-resposta {
+    display: flex;
+    flex-direction: row;
+}
+
+.conteiner-alternativas {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.conteiner-resposta-certa {
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+}
+
+.conteiner-resposta-certa FormControl RadioGroup FormControlLabel {
+    margin-top: 20px;
+}
+
+.conteiner-gerar-questoes h1{
+    margin: 0 0 10px 0 !important;
+    font-size: 2rem;
+    letter-spacing: -.8;
+  }
+
+.btn-submeter {
+    width: 40%;
+    margin-inline: auto;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #2074d4;
+    border-style: none;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.span-questoes {
+    color: #777777;
+    text-align: left;
+    margin: 10px;
+    font-size: 1rem;
+}

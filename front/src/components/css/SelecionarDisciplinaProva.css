@@ -1,0 +1,21 @@
+#Selecionar-Turma {
+    width: 80%;
+    margin-inline: auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.turma {
+    padding: 10px;
+}
+
+.data-gerar {
+    width: 300px;
+    margin-inline: auto;
+}
+
+.display-data {
+    width: 400px;
+    text-align: center;
+    margin-inline: auto;
+}
